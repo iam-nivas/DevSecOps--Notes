@@ -1,0 +1,52 @@
+Interview Questions and Answers for Security Engineer Position
+1. Question: Explain SQL Injection and how to prevent it?
+
+Answer: SQL Injection is a type of security vulnerability where attackers can manipulate SQL queries to access or modify a database's contents. To prevent it, use parameterized queries (prepared statements) or an Object-Relational Mapping (ORM) framework to separate SQL code from user-supplied data, ensuring proper data validation and sanitization.
+
+2. Question: What is Cross-Site Scripting (XSS)?
+
+Answer: Cross-Site Scripting (XSS) is a type of security vulnerability where attackers inject malicious scripts into web pages viewed by other users. These scripts can then steal sensitive information or perform actions on behalf of the victim. Prevent XSS by implementing input validation, output encoding, and using security headers like Content Security Policy (CSP).
+
+3. Question: How does Broken Authentication occur, and how can it be mitigated?
+
+Answer: Broken Authentication occurs when an application's authentication mechanism is weak or improperly implemented, allowing unauthorized access to user accounts. To mitigate it, use strong password policies, enable multi-factor authentication (MFA), prevent brute-force attacks through account lockouts, and securely manage session tokens.
+
+4. Question: What is Insecure Deserialization, and how can it be addressed?
+
+Answer: Insecure Deserialization is a vulnerability where untrusted data is deserialized by an application, leading to potential code execution attacks. To address it, validate deserialized data, avoid using deserialization for untrusted data, and consider using safer serialization formats like JSON.
+
+5. Question: How can an application protect against Sensitive Data Exposure?
+
+Answer: To protect against Sensitive Data Exposure, encrypt sensitive data both at rest and during transmission (e.g., using TLS/SSL). Properly handle and store sensitive data, avoid caching sensitive information, and implement access controls to limit data exposure to authorized users.
+
+6. Question: What is the importance of Insufficient Logging & Monitoring in application security?
+
+Answer: Insufficient Logging & Monitoring can hinder an organization's ability to detect and respond to security incidents effectively. Proper logging and monitoring mechanisms help identify suspicious activities, security breaches, or anomalies, allowing timely responses to potential threats.
+
+7. Question: How can developers protect against XML External Entities (XXE) attacks?
+
+Answer: To protect against XXE attacks, disable XML external entity processing, use safer data formats like JSON, and validate input to prevent malicious content. Additionally, avoid parsing untrusted XML documents, and if required, use libraries that provide secure parsing options.
+
+8. Question: How can an organization manage Components with Known Vulnerabilities in their applications?
+
+Answer: To manage Components with Known Vulnerabilities, maintain an updated inventory of all components used in the application. Regularly scan for vulnerabilities and security patches in these components, and promptly apply updates to eliminate known vulnerabilities.
+
+9. Question: What is the impact of a Blind SQL Injection vulnerability, and how can it be exploited?
+
+Answer: Blind SQL Injection occurs when an application is vulnerable to SQL injection, but it does not display database errors or responses to the attacker. Attackers can exploit this vulnerability by sending crafted payloads and analyzing the application's behavior to infer the database's structure or retrieve sensitive information indirectly. For example, using conditional queries, attackers can determine if certain conditions are true or false based on the application's response, and thus, deduce sensitive information.
+
+10. Question: Explain how to prevent Cross-Site Request Forgery (CSRF) attacks using the Synchronizer Token Pattern.
+
+Answer: The Synchronizer Token Pattern involves generating a unique CSRF token and including it in the HTML form as a hidden field. Upon form submission, the application validates the token to ensure it matches the expected value stored in the server-side session. If the token does not match or is missing, the request is rejected. This prevents attackers from crafting malicious forms on external sites, as the CSRF token must be known and valid for the request to succeed.
+
+11. Question: How does an insecure Direct Object Reference (IDOR) vulnerability differ from other access control issues, and what is the best approach to fix it?
+
+Answer: In an Insecure Direct Object Reference (IDOR) vulnerability, an attacker can access unauthorized resources by manipulating the reference (e.g., object IDs) used in requests. Unlike traditional access control issues where attackers may escalate privileges, IDOR directly exposes specific resources. The best approach to fix IDOR is to validate the user's access rights and ensure they have proper authorization for the requested resources before serving the response.
+
+12. Question: How can CSP (Content Security Policy) mitigate Cross-Site Scripting (XSS) attacks, and what are the challenges in implementing a strict CSP policy?
+
+Answer: CSP mitigates XSS attacks by defining an allowed list of sources for content (e.g., scripts, styles, and images). Any content loaded from other sources will be blocked, reducing the risk of malicious scripts execution. Challenges in implementing a strict CSP policy include dealing with legacy applications, third-party scripts, and the need to fine-tune the policy to avoid blocking legitimate content while maintaining security.
+
+13. Question: What is the significance of using a strong session management system to prevent session fixation attacks, and how can it be implemented securely?
+
+Answer: A strong session management system is crucial to prevent session fixation attacks, where attackers set the session ID for users, allowing unauthorized access. Secure session management involves generating unique and unpredictable session IDs, expiring sessions after a period of inactivity, using secure cookies (e.g., HttpOnly and Secure flags), and regenerating session IDs after authentication.
